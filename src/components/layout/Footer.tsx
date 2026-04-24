@@ -51,7 +51,7 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer style={{ background: '#0a1128', padding: '5rem 5% 2rem', borderTop: '1px solid var(--border-color)' }}>
+    <footer style={{ background: 'var(--bg-card)', padding: '5rem 5% 2rem', borderTop: '1px solid var(--border-color)' }}>
       <Row gutter={[48, 48]}>
         {/* Column 1: About Us & Social Media */}
         <Col xs={24} sm={12} lg={6}>
@@ -151,7 +151,7 @@ const Footer: React.FC = () => {
       <div style={{
         marginTop: '4rem',
         paddingTop: '2rem',
-        borderTop: '1px solid rgba(255,255,255,0.1)',
+        borderTop: '1px solid var(--border-color)',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
