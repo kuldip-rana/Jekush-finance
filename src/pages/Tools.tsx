@@ -26,52 +26,61 @@ const Tools: React.FC = () => {
       <Row justify="center">
         <Col xs={24} lg={16}>
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}>
-            <Card className="glass-panel" bordered={false}>
-              <Title level={3} style={{ marginBottom: '2rem' }}>SIP Calculator</Title>
-              <Row gutter={[48, 48]}>
+            <Card className="glass-panel" bordered={false} bodyStyle={{ padding: '3rem' }} style={{ borderRadius: '24px', boxShadow: '0 20px 40px rgba(0,0,0,0.05)' }}>
+              <Row gutter={[64, 48]}>
                 <Col xs={24} md={12}>
-                  <div style={{ marginBottom: '2rem' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                      <Text style={{ color: 'var(--text-primary)' }}>Monthly Investment</Text>
-                      <Text style={{ color: 'var(--accent-color)', fontWeight: 'bold' }}>₹{monthlyInvest.toLocaleString()}</Text>
+                  <Title level={3} style={{ marginBottom: '3rem', fontSize: '1.8rem' }}>SIP Calculator</Title>
+                  <div style={{ marginBottom: '3rem' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                      <Text style={{ color: 'var(--text-secondary)', fontSize: '1.1rem' }}>Monthly Investment</Text>
+                      <Text style={{ color: 'var(--accent-color)', fontWeight: 'bold', fontSize: '1.2rem' }}>₹{monthlyInvest.toLocaleString()}</Text>
                     </div>
-                    <Slider min={500} max={100000} step={500} value={monthlyInvest} onChange={setMonthlyInvest} />
+                    <Slider min={500} max={100000} step={500} value={monthlyInvest} onChange={setMonthlyInvest} tooltip={{ formatter: null }} />
+                  </div>
+                  <div style={{ marginBottom: '3rem' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                      <Text style={{ color: 'var(--text-secondary)', fontSize: '1.1rem' }}>Expected Return Rate (p.a)</Text>
+                      <Text style={{ color: 'var(--accent-color)', fontWeight: 'bold', fontSize: '1.2rem' }}>{rate}%</Text>
+                    </div>
+                    <Slider min={5} max={30} value={rate} onChange={setRate} tooltip={{ formatter: null }} />
                   </div>
                   <div style={{ marginBottom: '2rem' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                      <Text style={{ color: 'var(--text-primary)' }}>Expected Return Rate (p.a)</Text>
-                      <Text style={{ color: 'var(--accent-color)', fontWeight: 'bold' }}>{rate}%</Text>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                      <Text style={{ color: 'var(--text-secondary)', fontSize: '1.1rem' }}>Time Period (Years)</Text>
+                      <Text style={{ color: 'var(--accent-color)', fontWeight: 'bold', fontSize: '1.2rem' }}>{years} Yr</Text>
                     </div>
-                    <Slider min={5} max={30} value={rate} onChange={setRate} />
-                  </div>
-                  <div style={{ marginBottom: '2rem' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                      <Text style={{ color: 'var(--text-primary)' }}>Time Period (Years)</Text>
-                      <Text style={{ color: 'var(--accent-color)', fontWeight: 'bold' }}>{years} Yr</Text>
-                    </div>
-                    <Slider min={1} max={40} value={years} onChange={setYears} />
+                    <Slider min={1} max={40} value={years} onChange={setYears} tooltip={{ formatter: null }} />
                   </div>
                 </Col>
                 <Col xs={24} md={12}>
-                  <div style={{ background: 'rgba(15, 23, 42, 0.5)', padding: '2rem', borderRadius: '12px', height: '100%' }}>
+                  <div style={{ 
+                    background: 'linear-gradient(145deg, #0f172a 0%, #1e293b 100%)', 
+                    padding: '3rem', 
+                    borderRadius: '20px', 
+                    height: '100%',
+                    boxShadow: '0 20px 40px rgba(15, 23, 42, 0.2)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center'
+                  }}>
                     <Statistic 
-                      title={<span style={{ color: 'var(--text-secondary)' }}>Invested Amount</span>} 
+                      title={<span style={{ color: 'rgba(248, 250, 252, 0.7)', fontSize: '1rem' }}>Invested Amount</span>} 
                       value={totalInvested} 
                       prefix="₹" 
-                      valueStyle={{ color: 'var(--text-primary)', marginBottom: '1rem' }} 
+                      valueStyle={{ color: '#f8fafc', marginBottom: '2rem', fontSize: '1.8rem', fontWeight: 500 }} 
                     />
                     <Statistic 
-                      title={<span style={{ color: 'var(--text-secondary)' }}>Est. Returns</span>} 
+                      title={<span style={{ color: 'rgba(248, 250, 252, 0.7)', fontSize: '1rem' }}>Est. Returns</span>} 
                       value={wealthGained} 
                       prefix="₹" 
-                      valueStyle={{ color: 'var(--success-color)', marginBottom: '1rem' }} 
+                      valueStyle={{ color: '#34d399', marginBottom: '2rem', fontSize: '1.8rem', fontWeight: 500 }} 
                     />
-                    <div style={{ borderTop: '1px solid var(--border-color)', margin: '1rem 0' }}></div>
+                    <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.1)', margin: '1rem 0 2rem 0' }}></div>
                     <Statistic 
-                      title={<span style={{ color: 'var(--text-primary)', fontWeight: 'bold' }}>Total Value</span>} 
+                      title={<span style={{ color: '#f8fafc', fontWeight: 600, fontSize: '1.1rem' }}>Total Value</span>} 
                       value={calculateSIP()} 
                       prefix="₹" 
-                      valueStyle={{ color: 'var(--accent-color)', fontWeight: 'bold', fontSize: '2rem' }} 
+                      valueStyle={{ color: '#EE7F1A', fontWeight: 'bold', fontSize: '2.5rem' }} 
                     />
                   </div>
                 </Col>

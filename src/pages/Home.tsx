@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Typography, Row, Col, Card, Button, Statistic } from 'antd';
 import { motion } from 'framer-motion';
 import { SafetyCertificateOutlined, StockOutlined, UsergroupAddOutlined, ArrowRightOutlined } from '@ant-design/icons';
@@ -7,6 +8,8 @@ import GrowthChart from '../components/charts/GrowthChart';
 const { Title, Text, Paragraph } = Typography;
 
 const Home: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div>
       {/* Hero Section */}
@@ -57,11 +60,11 @@ const Home: React.FC = () => {
                 A premium, data-driven approach to wealth management. 
                 Experience 33+ years of expertise distilled into intelligent investment strategies.
               </Paragraph>
-              <div style={{ display: 'flex', gap: '1rem' }}>
-                <Button type="primary" size="large" style={{ height: '54px', padding: '0 32px', fontSize: '1.1rem' }}>
+              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                <Button type="primary" size="large" style={{ height: '54px', padding: '0 32px', fontSize: '1.1rem' }} onClick={() => navigate('/services/finance')}>
                   Start Your Assessment
                 </Button>
-                <Button size="large" style={{ height: '54px', padding: '0 32px', fontSize: '1.1rem', background: 'transparent', borderColor: 'var(--border-color)', color: 'var(--text-primary)' }}>
+                <Button size="large" style={{ height: '54px', padding: '0 32px', fontSize: '1.1rem', background: 'transparent', borderColor: 'var(--border-color)', color: 'var(--text-primary)' }} onClick={() => navigate('/products/model-portfolio')}>
                   View Performance
                 </Button>
               </div>
@@ -166,7 +169,7 @@ const Home: React.FC = () => {
                 <Statistic title={<span style={{color: 'var(--text-secondary)'}}>Expected Return</span>} value={12} suffix="%" valueStyle={{ color: 'var(--success-color)' }} />
               </Col>
             </Row>
-            <Button type="primary" size="large">Open SIP Calculator</Button>
+            <Button type="primary" size="large" onClick={() => navigate('/tools')}>Open SIP Calculator</Button>
           </Col>
           <Col xs={24} lg={14}>
             <div className="glass-panel" style={{ padding: '2rem' }}>
