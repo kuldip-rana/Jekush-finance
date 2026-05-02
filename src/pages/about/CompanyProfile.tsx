@@ -1,19 +1,27 @@
 import React from 'react';
 import { Typography, Row, Col, Card } from 'antd';
 import { motion } from 'framer-motion';
+import HeroCarousel from '../../components/ui/HeroCarousel';
 
 const { Title, Paragraph } = Typography;
 
 const CompanyProfile: React.FC = () => {
+  const images = [
+    'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg',
+    'https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg',
+    'https://images.pexels.com/photos/259165/pexels-photo-259165.jpeg'
+  ];
+
   return (
-    <div style={{ padding: '6rem 5%', minHeight: '80vh' }}>
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-        <Title level={1}>Company Profile</Title>
-        <Paragraph style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', maxWidth: '800px', marginBottom: '4rem' }}>
-          Smart Moves for a Brighter Tomorrow. Discover the story and mission behind VDAS.
-        </Paragraph>
-        
-        <Row gutter={[32, 32]}>
+    <div style={{ minHeight: '80vh' }}>
+      <HeroCarousel 
+        title="Company Profile" 
+        description="Smart Moves for a Brighter Tomorrow. Discover the story and mission behind VDAS." 
+        images={images} 
+      />
+      <div style={{ padding: '0 5% 6rem' }}>
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.8 }}>
+          <Row gutter={[32, 32]}>
           <Col xs={24} lg={12}>
             <Card className="glass-panel" bordered={false} style={{ height: '100%' }}>
               <Title level={3}>Our Story</Title>
@@ -47,7 +55,8 @@ const CompanyProfile: React.FC = () => {
             </Card>
           </Col>
         </Row>
-      </motion.div>
+        </motion.div>
+      </div>
     </div>
   );
 };

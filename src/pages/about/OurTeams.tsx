@@ -1,6 +1,7 @@
 import React from 'react';
 import { Typography, Row, Col, Card } from 'antd';
 import { motion } from 'framer-motion';
+import HeroCarousel from '../../components/ui/HeroCarousel';
 
 const { Title, Paragraph } = Typography;
 
@@ -13,15 +14,22 @@ const OurTeams: React.FC = () => {
     { title: 'Insurance Team', desc: 'Specialists in risk assessment, providing you with Sampoorna Suraksha.' }
   ];
 
+  const images = [
+    'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg',
+    'https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg',
+    'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg'
+  ];
+
   return (
-    <div style={{ padding: '6rem 5%', minHeight: '80vh' }}>
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-        <Title level={1}>Meet Our Financial Experts</Title>
-        <Paragraph style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', maxWidth: '800px', marginBottom: '4rem' }}>
-          Get to know the experienced team behind VDAS—your trusted financial advisors for wealth management, investments, insurance, and more.
-        </Paragraph>
-        
-        <Title level={2} style={{ marginBottom: '2rem' }}>Core Team</Title>
+    <div style={{ minHeight: '80vh' }}>
+      <HeroCarousel 
+        title="Meet Our Financial Experts" 
+        description="Get to know the experienced team behind VDAS—your trusted financial advisors for wealth management, investments, insurance, and more." 
+        images={images} 
+      />
+      <div style={{ padding: '0 5% 6rem' }}>
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.8 }}>
+          <Title level={2} style={{ marginBottom: '2rem', textAlign: 'center' }}>Core Team</Title>
         <Row gutter={[24, 24]}>
           {departments.map((dept, index) => (
             <Col xs={24} sm={12} lg={8} key={index}>
@@ -34,7 +42,8 @@ const OurTeams: React.FC = () => {
             </Col>
           ))}
         </Row>
-      </motion.div>
+        </motion.div>
+      </div>
     </div>
   );
 };

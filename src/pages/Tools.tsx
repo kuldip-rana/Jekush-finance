@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { Typography, Row, Col, Card, Slider, Statistic } from 'antd';
+import { Typography, Row, Col, Card, Slider, Statistic, Button } from 'antd';
+import { ArrowLeftOutlined } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const { Title, Text } = Typography;
 
 const Tools: React.FC = () => {
+  const navigate = useNavigate();
   const [monthlyInvest, setMonthlyInvest] = useState(10000);
   const [years, setYears] = useState(10);
   const [rate, setRate] = useState(12);
@@ -21,6 +24,16 @@ const Tools: React.FC = () => {
 
   return (
     <div style={{ padding: '6rem 5%', minHeight: '80vh' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', marginBottom: '2rem' }}>
+        <Button 
+          type="text" 
+          icon={<ArrowLeftOutlined />} 
+          onClick={() => navigate('/')} 
+          style={{ fontSize: '1.1rem', color: 'var(--text-secondary)' }}
+        >
+          Back to Home
+        </Button>
+      </div>
       <Title level={1} style={{ textAlign: 'center', marginBottom: '4rem' }}>Financial Tools</Title>
 
       <Row justify="center">

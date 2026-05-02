@@ -99,3 +99,39 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+.service-hover-card {
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.service-hover-card:hover {
+  background-color: var(--secondary-color) !important;
+  color: white !important;
+}
+
+.service-hover-card:hover h4,
+.service-hover-card:hover span.ant-typography {
+  color: white !important;
+}
+
+.service-hover-card .know-more-btn {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  margin-top: 1.5rem;
+  border-color: white;
+  color: white;
+  background: transparent;
+}
+
+.service-hover-card:hover .know-more-btn {
+  opacity: 1;
+}
+
+.service-hover-card .service-icon-container {
+  transition: all 0.3s ease;
+}
+
+.service-hover-card:hover .service-icon-container {
+  border-color: white !important;
+}

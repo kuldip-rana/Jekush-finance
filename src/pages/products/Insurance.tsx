@@ -1,31 +1,36 @@
 import React from 'react';
 import { Typography, Row, Col, Card } from 'antd';
 import { motion } from 'framer-motion';
+import HeroCarousel from '../../components/ui/HeroCarousel';
 
 const { Title, Paragraph } = Typography;
 
 const ProductPage: React.FC = () => {
+  const images = [
+    'https://images.pexels.com/photos/259165/pexels-photo-259165.jpeg',
+    'https://images.pexels.com/photos/8297341/pexels-photo-8297341.jpeg',
+    'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg'
+  ];
+
   return (
-    <div style={{ padding: '6rem 5%', minHeight: '80vh' }}>
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-        <Title level={1}>Insurance</Title>
-        <Row gutter={[48, 48]} style={{ marginTop: '3rem' }} align="middle">
-          <Col xs={24} lg={12}>
-            <Card className="glass-panel" bordered={false}>
-              <Paragraph style={{ fontSize: '1.1rem', color: 'var(--text-primary)', marginBottom: '1.5rem' }}>Our experts are here to help you choose the right insurance coverage for your needs and financial security.</Paragraph>
-            </Card>
-          </Col>
-          <Col xs={24} lg={12}>
-            <motion.div whileHover={{ scale: 1.02 }} transition={{ type: 'spring', stiffness: 300 }}>
-              <img 
-                src="https://images.pexels.com/photos/259165/pexels-photo-259165.jpeg" 
-                alt="Insurance" 
-                style={{ width: '100%', height: 'auto', borderRadius: '12px', boxShadow: '0 20px 40px rgba(0,0,0,0.3)', objectFit: 'cover', aspectRatio: '4/3' }} 
-              />
-            </motion.div>
-          </Col>
-        </Row>
-      </motion.div>
+    <div style={{ minHeight: '80vh' }}>
+      <HeroCarousel 
+        title="Insurance" 
+        description="Our experts are here to help you choose the right insurance coverage for your needs and financial security." 
+        images={images} 
+      />
+      <div style={{ padding: '0 5% 6rem' }}>
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.8 }}>
+          <Row gutter={[32, 32]} justify="center">
+            <Col xs={24} lg={16}>
+              <Card className="glass-panel" bordered={false} style={{ height: '100%' }}>
+                <Title level={3}>Comprehensive Coverage</Title>
+                <Paragraph style={{ fontSize: '1.1rem', color: 'var(--text-primary)', marginBottom: '1.5rem' }}>Our experts are here to help you choose the right insurance coverage for your needs and financial security. We provide tailored solutions to protect you, your family, and your assets against unforeseen events. Whether it's life insurance, health coverage, or specialized risk management, we guide you through the process to ensure peace of mind.</Paragraph>
+              </Card>
+            </Col>
+          </Row>
+        </motion.div>
+      </div>
     </div>
   );
 };
