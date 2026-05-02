@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Typography, Row, Col, Card, Button, Statistic, Collapse, Avatar, Form, Input } from 'antd';
 import { motion } from 'framer-motion';
-import { SafetyCertificateOutlined, StockOutlined, UsergroupAddOutlined, ArrowRightOutlined, MessageOutlined, TrophyOutlined, BankOutlined, CheckCircleOutlined, PieChartOutlined, LockOutlined, AppstoreOutlined, LineChartOutlined, IdcardOutlined, WalletOutlined, TeamOutlined } from '@ant-design/icons';
+import { SafetyCertificateOutlined, StockOutlined, UsergroupAddOutlined, MessageOutlined, TrophyOutlined, BankOutlined, CheckCircleOutlined, LockOutlined, AppstoreOutlined, LineChartOutlined, IdcardOutlined, WalletOutlined, TeamOutlined } from '@ant-design/icons';
 import GrowthChart from '../components/charts/GrowthChart';
 import ImageCarousel from '../components/ui/ImageCarousel';
 
